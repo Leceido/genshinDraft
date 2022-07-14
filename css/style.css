@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url("../imagens/background.jpg") center center fixed no-repeat, #000;
+    font-family: 'Arial', sans-serif;
+}
+.game {
+    background: rgba(0, 0, 0, 0.4);
+    width: 1030px;
+    height: 980px;
+    padding: 5px;
+    color: white;
+    margin: auto;
+    z-index: 1;
+}
+.time:first-of-type {
+    background: black;
+    float: left;
+    text-align: left;
+}
+.time {
+    border: 1px solid #4d4d4d;
+    margin: 5px;
+    margin-bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    float: right;
+    text-align: right;
+}
+
+.pick {
+    border: 1px solid #4d4d4d;
+    width: 60px;
+    height: 192px;
+    background: black;
+    float: left;
+    margin: 1.1px;
+    text-align: center;
+    
+}
+.pick_imagem_teste {
+    background: #000;
+    width: 58px;
+    height: 190px;
+    overflow: hidden;
+    
+}
+.pick img {
+    max-height: 190px;
+    position: relative;
+    right: 42%;
+}
+.pick:last-of-type {
+    float: right;
+}
+.time-nome {
+    border: 1px solid #4d4d4d;
+    background-color: black;
+    font-size: 30px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    width: 498px;
+}
+.clear {
+    clear: both;
+}
+.ban {
+    border: 1px solid #4d4d4d;
+    width: 120px;
+    height: 120px;
+    background: black;
+    float: left;
+    margin: 2px;
+    text-align: center;
+    overflow: hidden;
+}
+.mensagem_ban {
+    width: 120px;
+    background: #000;
+    position: relative;
+    bottom: 30%;
+    color: #999;
+}
+
+.img_pick {
+    padding: 0;
+    display: block;
+    right: 3px;
+    margin: 0;
+    background: rgb(206, 11, 11);
+    height: 192px;
+    width: 60px;
+}
+
+.pick_mensagem {
+    text-align: center;
+    font-size: 8pt;
+    display: block;
+    width: 58px;
+    background: rgba(0, 0, 0, 0.9);
+    position: relative;
+    bottom: 35px;
+    height: 24px;
+    color: #999;
+}
+.pers_mensagem {
+    text-align: center;
+    display: block;
+    width: 73px;
+    background: black;
+    position: relative;
+    bottom: 42%;
+    font-size: 11pt;
+}
+.ban_imagem {
+    width: 120px;
+    height: 120px;
+    background: #000;
+    overflow: hidden;
+}
+.ban img  {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray; 
+    max-width: 180px;
+    position: relative;
+    right: 25%;
+    bottom: 35%;
+}
+.personagens {
+    margin: 5px;
+    height: 400px;
+}
+.personagem {
+    margin: 4.5px;
+    width: 75px;
+    height: 75px;
+    border: 1px solid #4d4d4d;
+    color: #999;
+    background: rgba(0, 0, 0, 0.288);
+    float: left;
+    cursor: pointer;
+}
+.personagens > div:hover {
+    border-color: #fff;
+    color: #fff;
+    cursor: pointer;
+}
+.personagens_borda {
+    border-color: #fff;
+    color: #fff;
+}
+.personagem_background {
+    background: rgb(17, 0, 255);
+    border-color: #fff;
+    color: #fff;
+}
+.personagem img {
+    max-width: 73px;
+    max-height: 73px;
+    width: auto;
+    height: max-content;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#meio-tela {
+    margin: 5px; 
+    margin-top: 0px;
+}
+#botao {
+    display: block;
+    margin: auto;
+    width: 200px;
+    height: 30px;
+    position: relative;
+    bottom: 20px;
+}
+#mensagem {
+    font-size: 20pt;
+    text-align: center;
+    margin: 0;
+}
+#tempo {
+    margin: 0;
+    position: relative;
+    bottom: 30%;
+}
+#mensagem form {
+    position: relative;
+    display: block;
+    left: 50%;
+}
+
+/* POPUP CONFIGS X1 */
+
+.popup_button {
+    display: block;
+    margin: 20px auto;
+    background:  #3b72ba;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+.popup_wrapper {
+    /*display: none;*/
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.popup {
+    font-family: arial;
+    text-align: left;
+    width: 50%;
+    max-width: 150%;
+    margin: 10% auto;
+    padding: 20px;
+    background: white;
+    position: relative;
+    z-index: 3;
+}
+.popup a {
+    color: white;
+    cursor: pointer;
+    padding: 6px 10px;
+    text-decoration: none;
+    background:  #3b72ba;
+}
+.popup_close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+.popup_content h2 {
+    text-align: center;
+}
+.popup_content {
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr);
+    grid-gap: 2rem;
+}
+.popup h2 {
+    text-align: center;
+}
+
+.forms {
+    border-right: 1px solid black;
+    
+}
+.forms:last-of-type {
+    border: none;
+    text-align: center;
+    margin-right: 15px;
+}
+.forms img {
+    max-width: 80px;
+    max-height: 80px;
+    width: auto;
+    height: max-content;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#time1form, #time2form {
+    width: 80%;
+}
