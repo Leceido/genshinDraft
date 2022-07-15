@@ -62,7 +62,7 @@ function selecionar(e) {
             }
         }
         if (!pickadoBoolean) {
-            imagem.src = `../imagens/picks/Character_${nome}_Card.webp`
+            imagem.src = `imagens/picks/Character_${nome}_Card.png`
             nomeAnterior = nome
             selecionado = true
         }
@@ -76,7 +76,7 @@ function selecionar(e) {
                     }
                 }
                 if (!pickadoBoolean) {
-                    imagem.src = `../imagens/picks/Character_${nome}_Card.webp`
+                    imagem.src = `imagens/picks/Character_${nome}_Card.png`
                     nomeAnterior = nome
                     selecionado = true
                 }
@@ -374,7 +374,7 @@ function pickarAleatorio() {
         }
     }
     if (!pickadoBoolean) {
-        imagem.src = `../imagens/picks/Character_${chars[randomPers]}_Card.webp`
+        imagem.src = `imagens/picks/Character_${chars[randomPers]}_Card.png`
         nomeAnterior = chars[randomPers]
         selecionado = true
     } else {
