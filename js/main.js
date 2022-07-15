@@ -4,27 +4,27 @@ let chars = ['aether', 'albedo', 'aloy', 'amber', 'ayaka', 'ayato', 'barbara', '
    'razor', 'rosaria', 'sara', 'sayu', 'shenhe', 'shinobu', 'shogun', 'sucrose', 'thoma', 'venti',
     'tartaglia', 'xiangling', 'xiao', 'xingqiu', 'yanfei', 'yaemiko', 'xinyan', 'yelan', 'yoimiya',
      'yunjin', 'zhongli']
-let picks = []
-let pickado = []
-let pickadoBoolean = false
-let banido = []
-let c = 1
-let z = 0 
-let nomeAnterior;
-let personagem = null
-let selecionado = false
-let bans = document.getElementsByName('num_bans')
-let tempo = document.getElementsByName('tempo_pick')
-let mensagem = document.getElementById('mensagem_meio')
-let popup = document.querySelector('.popup_wrapper')
-let time1form = document.querySelector('#time1form')
-let time2form = document.querySelector('#time2form')
-let time1 = document.querySelector('#time1')
-let time2 = document.querySelector('#time2')
-let clonePick = document.getElementById('clonePick')
-let cloneBoolean = false
-let stylePersonagem
-let nomeVerificar
+let picks = [] //Array com a ordem dos picks
+let pickado = [] //Array que recebe os personagens pickados
+let pickadoBoolean = false //Boolean que verifica se o personagem escolhido ja foi pickado/banido
+let banido = [] //Array que recebe os personagens banidos
+let c = 1 //contador
+let z = 0 //contador da ordem de pick
+let nomeAnterior; //Variavel que recebe o ultimo personagem escolhido que nao foi pickado/banido
+let personagem = null  //Variavel usada na function selecionar(), para receber o id da div que chamou a funcao
+let selecionado = false //Boolean que verifica se tem algo selecionado. A verificacao so ocorre caso pickadoBoolean seja false
+let bans = document.getElementsByName('num_bans') //Variavel que recebe a quantidade de bans do form no popup
+let tempo = document.getElementsByName('tempo_pick') //Variavel que recebe o tempo para pick/ban do form no popup
+let mensagem = document.getElementById('mensagem_meio') //Variavel que recebe o texto no meio do site
+let popup = document.querySelector('.popup_wrapper') //variavel popup
+let time1form = document.querySelector('#time1form') //Nome time 1 no form
+let time2form = document.querySelector('#time2form') //Nome time 2 no form
+let time1 = document.querySelector('#time1') //Nome time 1 na tela
+let time2 = document.querySelector('#time2') //Nome time 2 na tela
+let clonePick = document.getElementById('clonePick') //Clonar pick checkbox
+let cloneBoolean = false  //Usada para verificar se checkbox eh true ou false
+let stylePersonagem //Utilizada para deixar o img cinza dos personagens que foram pickado/banido
+let nomeVerificar //Recebe o nome do personagem que foi selecionado e usado para mudar o style do personagem que esta selecionado
 
 
 /*
@@ -40,6 +40,7 @@ anemo - #3db5b7
 */
 
 function coinflip() {
+    //funcao do popup para decidir quem eh time 1 e time 2
     let imgcoin = document.getElementById('coin')
     let coin = Math.floor(Math.random() * 2)
     if (coin == 0) {
@@ -49,8 +50,8 @@ function coinflip() {
     }
 }
 
-function selecionar(e) {
-    personagem = document.getElementById(e)
+function selecionar(e) { //funcao onclick nos elementos html passando o proprio id como parametro
+    personagem = document.getElementById(e) 
     let nome = personagem.title
     nomeVerificar = nome
     pickadoBoolean = false
@@ -85,7 +86,7 @@ function selecionar(e) {
     }
 }
 
-function confirmar() {
+function confirmar() { //funcao para confirmar o selecionado.
     if (selecionado) {
         removeBorder()
         cloneBoolean = false
@@ -180,31 +181,26 @@ function confirmar() {
     }
     //alert(c)
 }
-
-function lista(x) {
-    let nomechar = document.getElementById(x).title
-    
-}
-
 function ordemPick(bans) {
     
     if (bans == 0) {
-        picks.push(9) //pick(numero do pick/ban)
-        picks.push(1)
-        picks.push(2)
-        picks.push(10)
-        picks.push(11)
-        picks.push(3)
-        picks.push(4)
-        picks.push(12)
-        picks.push(5)
-        picks.push(13)
-        picks.push(14)
-        picks.push(6)
-        picks.push(7)
-        picks.push(15)
-        picks.push(16)
-        picks.push(8)
+        picks.push(9)  //pick(numero do pick/ban) fp1
+        picks.push(1)  //fp2
+        picks.push(2)  //p1
+        picks.push(10) //p2
+        picks.push(11) //p2
+        picks.push(3)  //p1
+        picks.push(4)  //p1
+        picks.push(12) //p2
+
+        picks.push(5)  //fp2
+        picks.push(13) //fp1
+        picks.push(14) //p2
+        picks.push(6)  //p1
+        picks.push(7)  //p1
+        picks.push(15) //p2
+        picks.push(16) //p2
+        picks.push(8)  //p1
     } else if (bans == 2) {
         picks.push(17) //b1
         picks.push(21) //b2
@@ -286,7 +282,7 @@ function ordemPick(bans) {
     imagem = document.getElementById(`pick${picks[0]}`)
 }
 
-function comecar() {
+function comecar() { //botao comecar do popup
     time1.innerHTML = time1form.value
     time2.innerHTML = time2form.value
     if (bans[0].checked) {
@@ -364,6 +360,9 @@ function timer1() {
 function returnData(input) {
     return input < 10 ? `0${input}` : input
 }
+
+//Pickar aleatorio quando o timer zerar
+
 function pickarAleatorio() {
     pickadoBoolean = false
     let randomPers = Math.floor(Math.random() * chars.length)
@@ -381,6 +380,9 @@ function pickarAleatorio() {
         pickarAleatorio()
     }
 }
+
+//Quando checkbox clonar estiver selecionado
+
 function clonar() {
     if (clonePick.checked) {
         cloneBoolean = true
@@ -395,7 +397,7 @@ function clonar() {
     }
 }
 
-//Selecionado CSS
+//Style do selecionado
 
 const personagemStyle = document.querySelectorAll('.personagem');
 let styleBoolean = false
